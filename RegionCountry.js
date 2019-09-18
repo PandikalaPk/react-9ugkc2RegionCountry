@@ -1,34 +1,22 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 import {render} from 'react-dom';
 
-class Parent extends Component {
-
-    state = {
-        value: 0
-    }
-
-    toggleCheckboxChange = ev => {
-        this.setState({value: 5})
-    }
+export default class Parent extends Component {
+    constructor(props) {
+      super(props);
+      }
 
 
     render() {
-        return (
-            <Child num={this.state.value} toggleCheckboxChange={this.toggleCheckboxChange}/>
-        );
+      const region = this.props.values;
+      console.log(region);
+      
+        return(
+<div>
+
+</div>    
+  )
     }
 }
-
-function Child({num, toggleCheckboxChange}) {
-    return (
-        <div>
-            <label>
-                {num}
-                <input type="checkbox" onChange={toggleCheckboxChange}
-                />
-            </label>
-        </div>
-    )
-}
-
 render(<Parent/>, document.getElementById('root'));
