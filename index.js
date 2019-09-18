@@ -8,8 +8,10 @@ import './style.css';
 class App extends Component {
   constructor() {
     super();
-    this.state = {};
-   
+    this.state = {
+      checkboxValue:'',
+    };
+   this.checkboxChange = this.checkboxChange.bind(this);
   }
   componentDidMount() {
   axios.get('https://cpmtest.app.wtcdev2.paas.fedex.com/cpm/R3/search-options-service/regionCountry')
@@ -22,13 +24,42 @@ class App extends Component {
   });
 }
 
+checkboxChange(event){
+  if(event.target.checked){
+    this.setState({checkboxValue:event.target.value});
+  }else{
+    this.setState({checkboxValue:''});
+  }
+}
+
   render() {
     const data = this.state.result;
     
     return (
       <div>
         <Hello name={this.state.name} />
-      <RegionCountry values={data}/>
+        <h3 align ="left"> Search Options</h3> 
+         
+        <h3 align ="left"> Region/Country</h3>  
+        <div> 
+             <h4>
+                <label>
+                  <input type="checkbox" value="All" onChange={this.checkboxChange}/>
+                  All
+                </label>
+              </h4>
+          
+              <h4>
+                <label>
+                  <input type="checkbox" value="Misc" onChange={this.checkboxChange}/>
+                  Misc
+                </label>
+              </h4>
+            
+        <input className="textBox" type="text" placeholder=" Quick Search" /> 
+        <h3>{this.state.checkboxValue}</h3>
+        </div>
+        <RegionCountry values={data}/>
       </div>
     );
   }

@@ -11,12 +11,11 @@ export default class Parent extends Component {
     render() {
       const region = this.props.values;
       console.log(region);
-      
-        return(
-<div>
+      return(
+        <div>
+        </div>
+      )
 
-</div>    
-  )
     }
 }
 render(<Parent/>, document.getElementById('root'));
