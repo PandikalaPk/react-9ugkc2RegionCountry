@@ -13,8 +13,8 @@ class App extends Component {
     };
    this.checkboxChange = this.checkboxChange.bind(this);
   }
-  componentDidMount() {
-  axios.get('https://cpmtest.app.wtcdev2.paas.fedex.com/cpm/R3/search-options-service/regionCountry')
+  async componentDidMount() {
+  await axios.get('https://cpmtest.app.wtcdev2.paas.fedex.com/cpm/R3/search-options-service/regionCountry')
   .then(response => {
     const result = response.data;
     this.setState({ result });
@@ -40,32 +40,43 @@ checkboxChange(event){
         <Hello name={this.state.name} />
       <div>
       
-        <h3 align ="left"> Search Options</h3> 
-        <div>
-        
-        <h3 align ="left"> Hierarchy Comparison Direction</h3> 
-        <input type="radio" name="fruit" value="Compare Down Hierarchy"  onChange={this.checkboxChange}/> Compare Down Hierarchy
-        <input type="radio" name="fruit" value="Compare Across Hierarchy"  onChange={this.checkboxChange} />Compare Across Hierarchy
+        <h2 align ="left"> Search Options</h2> 
+        <div className="first">
+         
+             <header className="inside-header">
+                <h4 align ="left"> Hierarchy Comparison Direction</h4> 
+                </header>
+                 <header className="first-header">
+                <input type="radio" name="fruit" value="Compare Down Hierarchy"  onChange={this.checkboxChange}/> Compare Down Hierarchy
+                <input type="radio" name="fruit" value="Compare Across Hierarchy"  onChange={this.checkboxChange} />Compare Across Hierarchy
+            </header>
         </div>
+        <h5>User have Selected {this.state.checkboxValue}</h5>
         <div>
-        <h3 align ="left"> Excluded Status</h3> 
-        <h4>
+        <div className="first">
+          <header className="inside-header">
+        <h4 align ="left"> Excluded Status</h4> 
+        </header>
+         <header className="first-header">
+        <h5>
                 <label>
                   <input type="checkbox" value="Cash"/>
                   Cash
                 </label>
-              </h4>
+              </h5>
           
-              <h4>
+              <h5>
                 <label>
                   <input type="checkbox" value="Delete"/>
                   Delete
                 </label>
-              </h4>
+              </h5>
+         </header>
+      </div>
       </div>
       </div>
 
-        <h3 align ="left"> Region/Country</h3>  
+        <h2 align ="left"> Region/Country</h2>  
         <div> 
              <h4>
                 <label>
@@ -82,9 +93,12 @@ checkboxChange(event){
               </h4>
             
         <input className="textBox" type="text" placeholder=" Quick Search" /> 
-        <h3>User have Selected {this.state.checkboxValue}</h3>
+        
         </div>
+         
         <RegionCountry values={data}/>
+        <button onClick = {this.updateState}>Search</button>
+
       </div>
     );
   }
