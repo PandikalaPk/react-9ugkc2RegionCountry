@@ -9,19 +9,17 @@ export default class Parent extends Component {
     super(props);
   }
 
-  
-
-  
-  checkBoxList = () => {
+  chekkBoxList = () => {
     const region = this.props.values; 
-    console.log();   
-    const countryNames = region && region.regions && region.regions.map(region => {
+    
+    const countryNames = region && region.regions && region.regions.map(regionC => {
       
-        <CheckBoxList/>
-        region.countries.map( country => {
-          return country.country_name;          
+        console.log("inside loop...",regionC.region_name)
+//        region.countries.map( country => {
+          return 
+          <CheckBoxList send={country.country_name}/>;         
         })
-      })
+      
     
 
   }
@@ -30,7 +28,7 @@ export default class Parent extends Component {
     
     return (
       <div>
- 
+  {this.chekkBoxList()}
         
       </div>
     )

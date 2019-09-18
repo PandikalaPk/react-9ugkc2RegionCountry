@@ -3,7 +3,7 @@ import './style.css';
 
 
 const CheckboxList = (props) =>{
- console.log(this.props.region);
+ console.log("Calling",this.props.send);
   return(
     <div className="row" >
         {region.regions.map(region => {
@@ -16,12 +16,12 @@ const CheckboxList = (props) =>{
               <h4>
                 <label>
                   <input type="checkbox"  />
-                  {region.region_name}
+                  {regionC.regions.region_name}
                 </label>
               </h4>
             </header>
 
-              {region.countries.map( country =>{
+              {regionC.regions.countries.map( country =>{
                 return (
                       <div>        
                       <label>
