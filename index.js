@@ -38,44 +38,7 @@ checkboxChange(event){
     return (
       <div>
         <Hello name={this.state.name} />
-      <div>
-      
-        <h2 align ="left"> Search Options</h2> 
-        <div className="first">
-         
-             <header className="inside-header">
-                <h4 align ="left"> Hierarchy Comparison Direction</h4> 
-                </header>
-                 <header className="first-header">
-                <input type="radio" name="fruit" value="Compare Down Hierarchy"  onChange={this.checkboxChange}/> Compare Down Hierarchy
-                <input type="radio" name="fruit" value="Compare Across Hierarchy"  onChange={this.checkboxChange} />Compare Across Hierarchy
-            </header>
-        </div>
-        <h5>User have Selected {this.state.checkboxValue}</h5>
-        <div>
-        <div className="first">
-          <header className="inside-header">
-        <h4 align ="left"> Excluded Status</h4> 
-        </header>
-         <header className="first-header">
-        <h5>
-                <label>
-                  <input type="checkbox" value="Cash"/>
-                  Cash
-                </label>
-              </h5>
-          
-              <h5>
-                <label>
-                  <input type="checkbox" value="Delete"/>
-                  Delete
-                </label>
-              </h5>
-         </header>
-      </div>
-      </div>
-      </div>
-
+        
         <h2 align ="left"> Region/Country</h2>  
         <div> 
              <h4>
