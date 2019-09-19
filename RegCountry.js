@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-
 import { render } from 'react-dom';
 
 export default class Parent extends Component{
@@ -9,12 +8,11 @@ export default class Parent extends Component{
     super();
     this.state = {
       checkboxValue:'',
+      Send:"regionC"
     };
    }
 
-
-
-    async componentDidMount() {
+  async componentDidMount() {
   await axios.get('https://cpmtest.app.wtcdev2.paas.fedex.com/cpm/R3/search-options-service/regionCountry')
   .then(response => {
     const result = response.data;
@@ -25,6 +23,7 @@ export default class Parent extends Component{
     console.log(error);
   });
 }
+
 
 render() {
     const data = this.state.result;
