@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default class ExcludedeStatus extends Compoenent{
+export default class ExcludedeStatus extends Component{
 
-  
+
 <div className="first">
           <header className="inside-header">
         <h4 align ="left"> Excluded Status</h4> 
