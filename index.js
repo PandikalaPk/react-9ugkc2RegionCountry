@@ -58,8 +58,8 @@ checkboxChange(event){
         <input className="textBox" type="text" placeholder=" Quick Search" /> 
         
         </div>
-         
-        <RegionCountry values={data}/>
+         <RegCountry />
+        //<RegionCountry values={data}/>
         <button onClick = {this.updateState}>Search</button>
 
       </div>
